@@ -1,8 +1,6 @@
 library(caret)
 library(dplyr)
-library(pls)
 source("code/functions/evaluation.R")
-
 # import preprocessed credit file
 credit <- read.csv("data/scaled-credit.csv")
 
@@ -19,13 +17,8 @@ credit.train %>% nrow()
 # 10-fold cross validation
 train_control<- trainControl(method="cv", number=10)
 
-# train the model using caret
-model.pcr1 <- train(Balance~., data=credit.train, trControl=train_control, method="pcr")
-model.pcr1$results
-
-# prediction using model.ridge1
-model.ridge1.pred <- predict(model.pcr1, credit.test)
-rsquared(credit.test$Balance, model.ridge1.pred)
-
-
-
+# train the model
+model.lm <- train(Balance~., data=credit.train, trControl=train_control, method="lm")
+model.lm.pred <- predict(model.lm, credit.test)
+model.lm.summary <- summary(model.lm)
+model.lm$results
