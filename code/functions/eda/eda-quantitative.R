@@ -19,11 +19,15 @@ quantitative_analysis <- function(variable) {
 
 	# Histograms and boxplots
 	png(paste("images/histogram-", variable, ".png"))
-	hist(Credit$variable, main = paste('"Histogram of ', variable, '"'), xlab = paste("'", variable, '"'))
+	title <- substitute(expression("Histogram of " + x), list(x = variable))
+	xlab <- substitute(expression("'" + x + "'"), list(x = variable))
+	hist(Credit$variable, main = title, xlab = xlab)
 	dev.off()
 	
 	png(paste("images/boxplot-", variable, ".png"))
-	boxplot(Credit$variable, col = "lightgray", main = paste('"Boxplot of ', variable, '"'), xlab = paste("'", variable, '"'))
+	title <- substitute(expression("Boxplot of " + x), list(x = variable))	
+	xlab <- substitute(expression(x), list(x = variable))
+	boxplot(Credit$variable, col = "lightgray", main = title, xlab = xlab)
 	dev.off()
 }
 
