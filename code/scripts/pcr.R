@@ -24,8 +24,10 @@ model.pcr1 <- train(Balance~., data=credit.train, trControl=train_control, metho
 model.pcr1$results
 
 # prediction using model.ridge1
-model.ridge1.pred <- predict(model.pcr1, credit.test)
-rsquared(credit.test$Balance, model.ridge1.pred)
+model.pcr1.pred <- predict(model.pcr1, credit.test)
+rsquared(credit.test$Balance, model.pcr1.pred)
 
 
+
+# You can use the function validationplot(), with the argument val.type = "MSEP", on the outputs of pcr() and plsr().
 

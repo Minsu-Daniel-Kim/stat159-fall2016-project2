@@ -22,3 +22,11 @@ test_that("r-squared", {
   expect_equal(rsquared(y, y_estimate), 1)
   
 })
+
+test_that("mse", {
+  
+  y <- c(1,2,3)
+  y_estimate <- c(1, 2, 3)
+  expect_equal(rsquared(y, y_estimate), 1)
+  
+})
