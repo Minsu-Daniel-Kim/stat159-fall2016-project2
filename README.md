@@ -1,10 +1,11 @@
 # stat159-fall2016-project2
 
-**Minsu Kim**
+**Minsu Kim** and **Lingjie Qiao**
 <div>
 University of California, Berkeley </br>
 Berkeley CA, 94072 USA </br>
 kaj011@berkeley.edu
+katherine_qiao@berkeley.edu
 </div>
 
 ### Objective 
