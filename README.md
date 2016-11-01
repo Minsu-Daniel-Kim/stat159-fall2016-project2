@@ -4,8 +4,8 @@
 <div>
 University of California, Berkeley </br>
 Berkeley CA, 94072 USA </br>
-kaj011@berkeley.edu
-katherine_qiao@berkeley.edu
+Minsu Kim: kaj011@berkeley.edu </br>
+Lingjie Qiao: katherine_qiao@berkeley.edu
 </div>
 
 ### Objective 
