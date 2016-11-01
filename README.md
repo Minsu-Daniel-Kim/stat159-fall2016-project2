@@ -1,6 +1,6 @@
 # stat159-fall2016-project2
 
-**Minsu Kim** and **Lingjie Qiao**
+Authors: **Minsu Kim**, **Lingjie Qiao**
 <div>
 University of California, Berkeley </br>
 Berkeley CA, 94072 USA </br>
