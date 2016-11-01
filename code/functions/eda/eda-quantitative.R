@@ -6,6 +6,7 @@ library(dplyr)
 quantitative_analysis <- function(variable) {
 	# Select data
 	data <- select(Credit, variable)
+	
 	# Minimum, Maximum, Range
 	min(data)
 	max(data)
