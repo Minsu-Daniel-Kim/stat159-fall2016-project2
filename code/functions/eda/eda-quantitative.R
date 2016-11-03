@@ -4,8 +4,11 @@ library(dplyr)
 # Explore Quantitative Variables
 
 quantitative_analysis <- function(variable) {
+
+	col <- match(names(Credit), variable)[1]
+	
 	# Select data
-	data <- select(Credit, variable)
+	data <- select(Credit, col)
 	
 	# Minimum, Maximum, Range
 	min(data)
