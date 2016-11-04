@@ -2,14 +2,14 @@ library(stats)
 library(car)
 
 # Import Data
-Credit <- read.csv("data/Credit.csv", header = TRUE)
+Credit <- read.csv("../../data/Credit.csv", header = TRUE)
 Credit <- Credit[,2:12]
 
 # loading all function files
-files <- list.files("functions/eda")
+files <- list.files("../functions/eda")
 
 for (i in 1:length(files)) {
-    source(paste0("functions/eda/", files[i]))
+    source(paste0("../functions/eda/", files[i]))
 }
 
 # Explore Quantitative Variables
@@ -19,7 +19,7 @@ for (i in quantitative_variables) {
 }
 
 # Explore Qualitative Variables
-qualitative_variables <- c("Gender", "Student", "Married", "Ethnicity", "Age")
-for (i in quantitative_variables) {
-    quantitative_analysis(i)
+qualitative_variables <- c("Gender", "Student", "Married", "Ethnicity")
+for (i in qualitative_variables) {
+    qualitative_analysis(i)
 }
