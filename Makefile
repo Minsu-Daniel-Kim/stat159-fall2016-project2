@@ -36,15 +36,20 @@ pcr: $(S)/pcr.R
 plsr: $(S)/plsr.R
 	cd $(S) && Rscript plsr.R
 
-regressions: ols ridge lasso pcr plsr
+regressions:
+	make ols
+	make ridge
+	make lasso
+	make pcr
+	make plsr
 
 report: $(R)/report.Rmd
 	cd $(R); Rscript -e 'library(rmarkdown); render("report.Rmd")'
 
 #slides: will generate slides.html
 
-session: $(S)/plsr.R
-	cd $(S) && session-info-script.R
+session: $(S)/session-info-script.R
+	cd $(S) && Rscript session-info-script.R
 
 clean: 
 	cd $(R) && rm -f report.pdf
