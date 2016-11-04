@@ -20,11 +20,6 @@ for (i in quantitative_variables) {
     quantitative_analysis(i)
 }
 
-# Explore Qualitative Variables
-qualitative_variables <- c("Gender", "Student", "Married", "Ethnicity", "Age")
-for (i in quantitative_variables) {
-    quantitative_analysis(i)
-
 # Matrix of correlations among all quantitative variables
 sink("../../data/eda-quantitative-output.txt", append = TRUE)
 cat(c("Matrix of correlations among all quantitative variables", "\n"), append = TRUE)
