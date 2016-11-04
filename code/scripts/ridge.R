@@ -3,38 +3,32 @@ library(dplyr)
 library(glmnet)
 source("code/functions/evaluation.R")
 
-# import preprocessed credit file
-credit <- read.csv("data/scaled-credit.csv")
-
-# split data set into 80% (training & validation) / 20% (testing)
-set.seed(1000)
-index <- createDataPartition(y = credit$Balance, p = 0.8, list = FALSE)
-credit.train <- credit[index, ]
-credit.test <- credit[-index, ]
-
-# sanity check
-credit.test %>% nrow()
-credit.train %>% nrow()
-
-# 10-fold cross validation
-train_control<- trainControl(method="cv", number=10)
-
-# train the model using caret
-model.ridge1 <- train(Balance~., data=credit.train, trControl=train_control, method="ridge")
-model.ridge1$results
-
-# prediction using model.ridge1
-model.ridge1.pred <- predict(model.ridge1, credit.test)
-rsquared(credit.test$Balance, model.ridge1.pred)
+# import train / test datast
+load("data/credit_original_test_train.RData")
 
 # train the model using glmnet
 set.seed(1000)
 grid <- 10 ^ seq(10, -2, length = 100)
-model.ridge2.lambda <- cv.glmnet(as.matrix(select(credit.train, -Balance)), credit.train$Balance, nfolds = 10, intercept = FALSE, standardize = FALSE, lambda = grid, alpha = 0)
-model.ridge2 <- glmnet(as.matrix(select(credit.train, -Balance)), credit.train$Balance, alpha = 0, lambda = model.ridge2.lambda$lambda.min)
+model.ridge.lambda <- cv.glmnet(as.matrix(select(credit.train, -Balance)), credit.train$Balance, nfolds = 10, intercept = FALSE, standardize = FALSE, lambda = grid, alpha = 0)
+model.ridge <- glmnet(as.matrix(select(credit.train, -Balance)), credit.train$Balance, alpha = 0, lambda = model.ridge.lambda$lambda.min)
 
-# prediction using model.ridge1
-model.ridge2.pred <- predict(model.ridge2,newx= as.matrix(select(credit.test, -Balance)),type="response",s= model.ridge2.lambda$lambda.min)
-rsquared(credit.test$Balance, model.ridge2.pred)
+# plot lambda values
+model.ridge.lambda.plot <- plot(model.ridge.lambda)
+
+# select the best lambda
+model.ridge.lambda.min <- model.ridge.lambda$lambda.min
+
+# prediction using model.ridge
+model.ridge.pred <- predict(model.ridge,newx= as.matrix(select(credit.test, -Balance)),type="response",s= model.ridge.lambda.min)
+
+# mse
+model.ridge.mse <- get_mse(credit.test$Balance, model.ridge.pred) # 12938.43
+
+# final coefficients
+model.ridge <- glmnet(as.matrix(select(credit.original, -Balance)), credit.original$Balance, alpha = 0, lambda = model.ridge.lambda.min)
+model.ridge.coeff <- coef(model.ridge)
+
+# save ridge
+save(model.ridge.lambda.plot, model.ridge.lambda.min, model.ridge.mse, model.ridge.coeff, file = 'data/ridge.RData')
 
 
