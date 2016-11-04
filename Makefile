@@ -46,10 +46,12 @@ regressions:
 report: $(R)/report.Rmd
 	cd $(R); Rscript -e 'library(rmarkdown); render("report.Rmd")'
 
-#slides: will generate slides.html
+slides: slides/slides.Rmd
+	cd slides; Rscript -e 'library(rmarkdown); render("slides.Rmd")'
 
 session: $(S)/session-info-script.R
 	cd $(S) && Rscript session-info-script.R
+
 
 clean: 
 	cd $(R) && rm -f report.pdf
