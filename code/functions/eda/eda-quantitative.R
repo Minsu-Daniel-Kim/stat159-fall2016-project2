@@ -5,7 +5,7 @@ library(dplyr)
 
 quantitative_analysis <- function(variable) {
 
-	col <- match(names(Credit), variable)[1]
+	col <- which(names(Credit) == variable)
 	
 	# Select data
 	data <- select(Credit, col)
@@ -25,16 +25,12 @@ quantitative_analysis <- function(variable) {
 	sd(data)
 
 	# Histograms and boxplots
-	png(paste("images/histogram-", variable, ".png"))
-	title <- substitute(expression("Histogram of " + x), list(x = variable))
-	xlab <- substitute(expression("'" + x + "'"), list(x = variable))
-	hist(data, main = title, xlab = xlab)
+	png(paste0("images/histogram-", variable, ".png"))
+	hist(data, main = paste("Histogram of ", variable), xlab = variable)
 	dev.off()
 	
 	png(paste("images/boxplot-", variable, ".png"))
-	title <- substitute(expression("Boxplot of " + x), list(x = variable))	
-	xlab <- substitute(expression(x), list(x = variable))
-	boxplot(data, col = "lightgray", main = title, xlab = xlab)
+	boxplot(data, main = paste("Boxplot of ", variable), xlab = variable)
 	dev.off()
 }
 
