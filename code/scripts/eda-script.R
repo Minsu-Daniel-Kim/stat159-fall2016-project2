@@ -22,7 +22,7 @@ for (i in quantitative_variables) {
 # Matrix of correlations among all quantitative variables
 sink("../../data/eda-quantitative-output.txt", append = TRUE)
 cat(c("Matrix of correlations among all quantitative variables", "\n"), append = TRUE)
-corr_matrix <- cor(Credit[quantitative_variables])
+cor(Credit[quantitative_variables])
 sink()
 
 # Scatterplot matrix
