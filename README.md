@@ -1,5 +1,7 @@
 # stat159-fall2016-project2
 
+## Predictive Modeling Process
+
 Authors: **Minsu Kim**, **Lingjie Qiao**
 <div>
 University of California, Berkeley </br>
