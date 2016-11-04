@@ -1,0 +1,52 @@
+---
+title: "Project 2 - Predictive Modeling Process"
+author: "Lingjie Qiao and Minsu Kim"
+date: "11/4/2016"
+output: ioslides_presentation
+---
+
+## Project Objective
+Predictive Modeling Process aims to improve the results from fitting ordinary least squares in terms of **Prediction Accuracy** and **Model Interpretability**
+
+## Data Target
+Our analysis starts with the data set called `Credit` provided by the author of book "An Introduction to Statistical Learning". This data set records `Balance`, which is the average credit card debt for a number of individuals, as well as several predictors. The dataset has eleven variables:
+
+<div class="blue">
+- Seven **quantitative** variables: Income, Limit, Rating, Cards, Age, Education, and Balance
+- Four **qualitative** variables, Gender, Student, Married, and Ethnicity
+</div>
+
+Our goal is to understand the relationship between `Balance` and these potential predictors with statistical fitting procedures.
+
+## Slide with Bullets
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+## Methodology and Applied Methods
+
+Instead of fitting multiple linear regression with ordinary least square (OLS), we use OLS as a benchmark to compare the following four methods: 
+
+- **Shrinkage Methods**
+    - Ridge regression (RR)
+    - Lasso regression (LR)
+- **Dimension Reduction Methods**
+    - Principal Components regression (PCR)
+    - Partial Least Squares regression (PLSR)
+
+## Key Findings
+
+
+## Conclusions
+
+
+## Reference
+
+
+## Slide with Plot
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
