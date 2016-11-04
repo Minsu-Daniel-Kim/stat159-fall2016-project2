@@ -29,7 +29,7 @@ qualitative_analysis <- function(variable) {
 	
 	# Barplot of Frequency Table
 	png(paste0("../../images/barplot-", variable, ".png"))
-	barplot(data, main = paste("Barplot of Frequency Table - ", variable), xlab = variable)
+	barplot(table(data), main = paste("Barplot of Frequency Table - ", variable), xlab = variable)
 	dev.off()
 }
 

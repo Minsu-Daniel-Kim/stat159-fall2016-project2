@@ -1,0 +1,60 @@
+Summary Statistics of Gender 
+ 
+Frequency Table - Absolute Frequency 
+data
+  Male Female 
+   193    207 
+ 
+Frequency Table - Relative Frequency 
+data
+  Male Female 
+0.4825 0.5175 
+ 
+Summary Statistics of Gender 
+ 
+Frequency Table - Absolute Frequency 
+data
+  Male Female 
+   193    207 
+ 
+Frequency Table - Relative Frequency 
+data
+  Male Female 
+0.4825 0.5175 
+ 
+Summary Statistics of Student 
+ 
+Frequency Table - Absolute Frequency 
+data
+ No Yes 
+360  40 
+ 
+Frequency Table - Relative Frequency 
+data
+ No Yes 
+0.9 0.1 
+ 
+Summary Statistics of Married 
+ 
+Frequency Table - Absolute Frequency 
+data
+ No Yes 
+155 245 
+ 
+Frequency Table - Relative Frequency 
+data
+    No    Yes 
+0.3875 0.6125 
+ 
+Summary Statistics of Ethnicity 
+ 
+Frequency Table - Absolute Frequency 
+data
+African American            Asian        Caucasian 
+              99              102              199 
+ 
+Frequency Table - Relative Frequency 
+data
+African American            Asian        Caucasian 
+          0.2475           0.2550           0.4975 
+ 
