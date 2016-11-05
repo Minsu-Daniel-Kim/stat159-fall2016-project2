@@ -13,8 +13,8 @@
 
 ## Abstract
 
-This paper summarizes the results of Stats 159 Reproducible and Collaborative Statistical Data Science Project 2: Predictive Modeling Process. After learning and applying multiple linear regression model via Ordinary Least Squares (OLS), we develop the idea of performing a predictive modeling process applied on the data set `Credit`. This project is largely based on the instructions provided in _Chapter 6: Linear Model Selection and Regularization_ from book **"An Introduction to Statistical Learning"**. 
+This paper summarizes the results of Stats 159 Reproducible and Collaborative Statistical Data Science Project 2: Predictive Modeling Process. After learning and applying multiple linear regression model via Ordinary Least Squares (OLS), we recognized some potential insufficiency of the ordinary least squares model and develop the idea of performing a predictive modeling process applied on the data set `Credit`. This project is largely based on the instructions provided in _Chapter 6: Linear Model Selection and Regularization_ from book **"An Introduction to Statistical Learning"**. 
 
-The goal of this project is to present the use of predictive modeling process and utilize software tools that effectively communicate the results. We are therefore dedicated to maintain project reproducibility and provide both objective and personal reflections upon statistical analysis.
+The goal of this project is to present the use of predictive modeling process and utilize software tools that effectively communicate the results. We are therefore dedicated to maintain project reproducibility and provide both objective and personal reflections upon regression analysis.
 
 ---
