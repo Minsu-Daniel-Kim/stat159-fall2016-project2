@@ -5,6 +5,7 @@ library(glmnet)
 # sooure evaluation.R
 source("../functions/evaluation.R")
 
+
 # import train / test datast
 load("../../data/credit_original_test_train.RData")
 
@@ -29,6 +30,11 @@ model.ridge.mse <- get_mse(credit.test$Balance, model.ridge.pred) # 12938.43
 # final coefficients
 model.ridge <- glmnet(as.matrix(select(credit.original, -Balance)), credit.original$Balance, alpha = 0, lambda = model.ridge.lambda.min)
 model.ridge.coeff <- coef(model.ridge)
+
+# plot graph
+png("../../images/ridge-lambda.png")
+plot(model.ridge.lambda)
+dev.off()
 
 # save ridge
 save(model.ridge, model.ridge.lambda, model.ridge.lambda.min, model.ridge.mse, model.ridge.coeff, file = '../../data/ridge.RData')

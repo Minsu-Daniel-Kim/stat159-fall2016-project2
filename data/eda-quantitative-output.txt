@@ -511,3 +511,345 @@ Cards     -0.051084217  0.086456347
 Age        0.003619285  0.001835119
 Education  1.000000000 -0.008061576
 Balance   -0.008061576  1.000000000
+Summary Statistics of Income 
+ 
+Min 
+[1] 10.354
+Max 
+[1] 186.634
+Range 
+[1]  10.354 186.634
+ 
+Median 
+[1] 33.1155
+Quantile 
+       0%       25%       50%       75%      100% 
+ 10.35400  21.00725  33.11550  57.47075 186.63400 
+IQR 
+[1] 36.4635
+ 
+Mean 
+[1] 45.21889
+Standard Deviation 
+[1] 35.24427
+ 
+Summary Statistics of Limit 
+ 
+Min 
+[1] 855
+Max 
+[1] 13913
+Range 
+[1]   855 13913
+ 
+Median 
+[1] 4622.5
+Quantile 
+      0%      25%      50%      75%     100% 
+  855.00  3088.00  4622.50  5872.75 13913.00 
+IQR 
+[1] 2784.75
+ 
+Mean 
+[1] 4735.6
+Standard Deviation 
+[1] 2308.199
+ 
+Summary Statistics of Rating 
+ 
+Min 
+[1] 93
+Max 
+[1] 982
+Range 
+[1]  93 982
+ 
+Median 
+[1] 344
+Quantile 
+    0%    25%    50%    75%   100% 
+ 93.00 247.25 344.00 437.25 982.00 
+IQR 
+[1] 190
+ 
+Mean 
+[1] 354.94
+Standard Deviation 
+[1] 154.7241
+ 
+Summary Statistics of Cards 
+ 
+Min 
+[1] 1
+Max 
+[1] 9
+Range 
+[1] 1 9
+ 
+Median 
+[1] 3
+Quantile 
+  0%  25%  50%  75% 100% 
+   1    2    3    4    9 
+IQR 
+[1] 2
+ 
+Mean 
+[1] 2.9575
+Standard Deviation 
+[1] 1.371275
+ 
+Summary Statistics of Age 
+ 
+Min 
+[1] 23
+Max 
+[1] 98
+Range 
+[1] 23 98
+ 
+Median 
+[1] 56
+Quantile 
+   0%   25%   50%   75%  100% 
+23.00 41.75 56.00 70.00 98.00 
+IQR 
+[1] 28.25
+ 
+Mean 
+[1] 55.6675
+Standard Deviation 
+[1] 17.24981
+ 
+Summary Statistics of Education 
+ 
+Min 
+[1] 5
+Max 
+[1] 20
+Range 
+[1]  5 20
+ 
+Median 
+[1] 14
+Quantile 
+  0%  25%  50%  75% 100% 
+   5   11   14   16   20 
+IQR 
+[1] 5
+ 
+Mean 
+[1] 13.45
+Standard Deviation 
+[1] 3.125207
+ 
+Summary Statistics of Balance 
+ 
+Min 
+[1] 0
+Max 
+[1] 1999
+Range 
+[1]    0 1999
+ 
+Median 
+[1] 459.5
+Quantile 
+     0%     25%     50%     75%    100% 
+   0.00   68.75  459.50  863.00 1999.00 
+IQR 
+[1] 794.25
+ 
+Mean 
+[1] 520.015
+Standard Deviation 
+[1] 459.7589
+ 
+Matrix of correlations among all quantitative variables 
+               Income       Limit      Rating       Cards         Age
+Income     1.00000000  0.79208834  0.79137763 -0.01827261 0.175338403
+Limit      0.79208834  1.00000000  0.99687974  0.01023133 0.100887922
+Rating     0.79137763  0.99687974  1.00000000  0.05323903 0.103164996
+Cards     -0.01827261  0.01023133  0.05323903  1.00000000 0.042948288
+Age        0.17533840  0.10088792  0.10316500  0.04294829 1.000000000
+Education -0.02769198 -0.02354853 -0.03013563 -0.05108422 0.003619285
+Balance    0.46365646  0.86169727  0.86362516  0.08645635 0.001835119
+             Education      Balance
+Income    -0.027691982  0.463656457
+Limit     -0.023548534  0.861697267
+Rating    -0.030135627  0.863625161
+Cards     -0.051084217  0.086456347
+Age        0.003619285  0.001835119
+Education  1.000000000 -0.008061576
+Balance   -0.008061576  1.000000000
+Summary Statistics of Income 
+ 
+Min 
+[1] 10.354
+Max 
+[1] 186.634
+Range 
+[1]  10.354 186.634
+ 
+Median 
+[1] 33.1155
+Quantile 
+       0%       25%       50%       75%      100% 
+ 10.35400  21.00725  33.11550  57.47075 186.63400 
+IQR 
+[1] 36.4635
+ 
+Mean 
+[1] 45.21889
+Standard Deviation 
+[1] 35.24427
+ 
+Summary Statistics of Limit 
+ 
+Min 
+[1] 855
+Max 
+[1] 13913
+Range 
+[1]   855 13913
+ 
+Median 
+[1] 4622.5
+Quantile 
+      0%      25%      50%      75%     100% 
+  855.00  3088.00  4622.50  5872.75 13913.00 
+IQR 
+[1] 2784.75
+ 
+Mean 
+[1] 4735.6
+Standard Deviation 
+[1] 2308.199
+ 
+Summary Statistics of Rating 
+ 
+Min 
+[1] 93
+Max 
+[1] 982
+Range 
+[1]  93 982
+ 
+Median 
+[1] 344
+Quantile 
+    0%    25%    50%    75%   100% 
+ 93.00 247.25 344.00 437.25 982.00 
+IQR 
+[1] 190
+ 
+Mean 
+[1] 354.94
+Standard Deviation 
+[1] 154.7241
+ 
+Summary Statistics of Cards 
+ 
+Min 
+[1] 1
+Max 
+[1] 9
+Range 
+[1] 1 9
+ 
+Median 
+[1] 3
+Quantile 
+  0%  25%  50%  75% 100% 
+   1    2    3    4    9 
+IQR 
+[1] 2
+ 
+Mean 
+[1] 2.9575
+Standard Deviation 
+[1] 1.371275
+ 
+Summary Statistics of Age 
+ 
+Min 
+[1] 23
+Max 
+[1] 98
+Range 
+[1] 23 98
+ 
+Median 
+[1] 56
+Quantile 
+   0%   25%   50%   75%  100% 
+23.00 41.75 56.00 70.00 98.00 
+IQR 
+[1] 28.25
+ 
+Mean 
+[1] 55.6675
+Standard Deviation 
+[1] 17.24981
+ 
+Summary Statistics of Education 
+ 
+Min 
+[1] 5
+Max 
+[1] 20
+Range 
+[1]  5 20
+ 
+Median 
+[1] 14
+Quantile 
+  0%  25%  50%  75% 100% 
+   5   11   14   16   20 
+IQR 
+[1] 5
+ 
+Mean 
+[1] 13.45
+Standard Deviation 
+[1] 3.125207
+ 
+Summary Statistics of Balance 
+ 
+Min 
+[1] 0
+Max 
+[1] 1999
+Range 
+[1]    0 1999
+ 
+Median 
+[1] 459.5
+Quantile 
+     0%     25%     50%     75%    100% 
+   0.00   68.75  459.50  863.00 1999.00 
+IQR 
+[1] 794.25
+ 
+Mean 
+[1] 520.015
+Standard Deviation 
+[1] 459.7589
+ 
+Matrix of correlations among all quantitative variables 
+               Income       Limit      Rating       Cards         Age
+Income     1.00000000  0.79208834  0.79137763 -0.01827261 0.175338403
+Limit      0.79208834  1.00000000  0.99687974  0.01023133 0.100887922
+Rating     0.79137763  0.99687974  1.00000000  0.05323903 0.103164996
+Cards     -0.01827261  0.01023133  0.05323903  1.00000000 0.042948288
+Age        0.17533840  0.10088792  0.10316500  0.04294829 1.000000000
+Education -0.02769198 -0.02354853 -0.03013563 -0.05108422 0.003619285
+Balance    0.46365646  0.86169727  0.86362516  0.08645635 0.001835119
+             Education      Balance
+Income    -0.027691982  0.463656457
+Limit     -0.023548534  0.861697267
+Rating    -0.030135627  0.863625161
+Cards     -0.051084217  0.086456347
+Age        0.003619285  0.001835119
+Education  1.000000000 -0.008061576
+Balance   -0.008061576  1.000000000
