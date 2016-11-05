@@ -1,7 +1,6 @@
 
 library(pls)
 library(reshape2)
-
 # load model data
 load("../../data/ols.RData")
 load("../../data/ridge.RData")
@@ -10,7 +9,8 @@ load("../../data/plsr.RData")
 load("../../data/pcr.RData")
 
 # table of regression coefficients for all methods ols, ridge, lasso, pcr, and plsr
-coeff_table <- as.matrix(cbind(model.ols.coeff, model.ridge.coeff, model.lasso.coeff, rbind(0, matrix(model.pcr.coeff)), rbind(0, matrix(model.plsr.coeff))))
+
+coeff_table <- matrix(cbind(model.ols.coeff, model.ridge.coeff, as.matrix(model.lasso.coeff), rbind(0, matrix(model.pcr.coeff)), rbind(0, matrix(model.plsr.coeff))), ncol = 5)
 colnames(coeff_table) <- c('ols', 'ridge', 'lasso', 'pcr', 'plsr')
 coeff_table <- as.data.frame(coeff_table)
 
@@ -39,10 +39,4 @@ png("../../images/plsr-combs.png")
 plot(model.plsr.combs, legendpos = "topright")
 dev.off()
 
-png("../../images/ridge-lambda.png")
-plot(model.ridge.lambda)
-dev.off()
 
-png("../../images/lasso-lambda.png")
-plot(model.lasso.lambda)
-dev.off()

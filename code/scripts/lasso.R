@@ -30,5 +30,10 @@ model.lasso.mse <- get_mse(credit.test$Balance, model.lasso.pred)
 model.lasso <- glmnet(as.matrix(select(credit.original, -Balance)), credit.original$Balance, alpha = 1, lambda = model.lasso.lambda.min)
 model.lasso.coeff <- coef(model.lasso)
 
+# plot graph
+png("../../images/lasso-lambda.png")
+plot(model.lasso.lambda)
+dev.off()
+
 # save lasso
 save(model.lasso, model.lasso.lambda, model.lasso.lambda.min, model.lasso.mse, model.lasso.coeff, file = '../../data/lasso.RData')

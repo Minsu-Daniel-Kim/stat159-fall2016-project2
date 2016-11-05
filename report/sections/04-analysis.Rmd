@@ -32,11 +32,11 @@ output: pdf_document
 ---
 ```{r, echo=FALSE}
 library(xtable)
-load("../../data/pcr.Rdata")
-load("../../data/ols.Rdata")
-load("../../data/plsr.Rdata")
-load("../../data/ridge.Rdata")
-load("../../data/lasso.Rdata")
+load("../data/pcr.Rdata")
+load("../data/ols.Rdata")
+load("../data/plsr.Rdata")
+load("../data/ridge.Rdata")
+load("../data/lasso.Rdata")
 ```
 
 
@@ -82,7 +82,7 @@ print(xtable_lasso_coef, comment=FALSE, type = "latex", caption.placement = 'top
 
 \begin{figure}[!hb]
   \centering
-    \includegraphics[width=70mm]{../../images/conditional-boxplot-Student.png}
+    \includegraphics[width=70mm]{../images/conditional-boxplot-Student.png}
       \caption{Conditional Boxplot on Student}
 \end{figure}
 

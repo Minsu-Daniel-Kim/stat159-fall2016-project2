@@ -42,6 +42,120 @@ In order to fit the regression models, we first preprocess the dataset `Credit` 
 * mean centering and standardization - which provides comparable scales for data analysis
 
 ---
+## 3. Methods
+
+In this section, we present the methods and procedure to build predive models and select the best model that predicts the target variable, balance. We fit and tune five different regression models namely OLS, Lasso, Ridge, PLSR and PCR.
+
+### 3.1 Data preparation
+We first consider to split the original dataset into train, validation and test. However, since modeling libraries internally support cross validation by splitting train into train and validation, we decide to split the original dataset into train and test data. It is important to hold out test data and fit models on train data because the held-out test data will later be used to measure the effectiveness of final models. If it is included in a training phase, the models overfit the data and bring about very optimistic MSE but do not generalize to future observations.
+
+### 3.2 Evaluation
+Since the goal of this analysis is to figure out which model works the best, we need to have an evaluation criterion to compare the effectiveness of each model. Thus, we choose a common evaluation criterion for regressiom model, Mean Square Error. To effectively calculate MSE for each model, we calculate MSE for each fold ten times using 10-fold cross-vaition and average them to obtain the averaged MSE for tuning parameters for each model. However, this process is automatically supported by libraries. Finally, we fit each model using test data and compare MSE from test data.
+
+### 3.3 Model description and hypter-parameter tuning
+While training each model, we need to find optimal paramters for each model. In order to effectively select hyper-parameters, we use 10-fold cross-validation. For lasso and ridge, lambda is the tuning parameter. It determines how much we will penalize models for high weights on predictors. If lambda is high, it penalizes models more and ends up generating sparse models. This kind of models is called shrinkage method because they shrinken weights or even remove predictors by penalizing models. These models are especially good options when there are many predictors. By penalziing or removing unnecessary predictors, they provide more interpretable results. Thus, they are often utilized in genomic and pharametical analysis. For PCR and PLSR, the number of principal components is the tuning parameter. They both internally use the precipal component analysis to obtain pricipal components, which are linear combination of original predictors in dataset. Based on spectral theorem, the eigenvector corresponding to highest eigenvalue is the direction that explains the most about the variability in data, which is the first principal component. We need to find the optimal number of subsets of PCs that summarize the entire data set without harming accuracy. Again, we use 10-kold cross validation to obtain the optimal number of principal components. 
+
+### 3.4 Model comparison
+As mentioned on 3.2 evaluation, we use MSE to compare models and select the best model. Although MSE does not provide an absolute means of model accuracy, it provides a relative measure to compare models. Thus, we finalize our model with the lowest MSE.
+
+
+In summary, the following is the the procedure for each model.
+
+1. Split the data into train and test, 80% and 20% repectively. 
+2. Train a model using train data with 10-fold cross-valdation.
+3. Pick the optimal hyper-parameters.
+4. Predict balance using the model with the optimal parameters.
+5. Calculate Mean Square Error.
+6. Record both Mean Square Error and coefficients.
+---
+output: pdf_document
+---
+## 4. Analysis
+In this section, we present the result for each model by investigating hyper-parameters, coefficients and Mean Square Error. Lastly, we choose the best model based on Mean Square Error.
+
+### 4.1 Baseline model
+In order to set the baseline model, we first fit the ordinary least square regression using eleven predictors. Unlike other models, OLS does not have a tuning paramter. The p-values in coefficients indicate that Income, Limit, cards and StudentYes are statistically significant. Also, adjusted R-squared shows that this model explains well about the data. 
+
+### 4.2 Tuning parameter selection
+As mentioned in methods section, we use 10-fold cross validation to tune hyper-paramters for each model. 
+
+**Ridge regression** penalizes predictors' weights by L2 norm. And lambda determines the magnitude of the penalty. The figure shows that MSE increases as the lambda increments. Using cross validation, we finally obtain the minimum lambda that maximizes MSE, which is 0.01. 
+
+**Lasso regression** penalizes predictors' weights by L1 norm. Similar to Ridge regression, its lambda determines the magnitude of the penalty. The figure shows that MSE increases significanly as lambda grows. Using cross validation, we finally obtain the minimum lambda that maximizes MSE, which is 0.01. 
+
+This is an interesting result in that both Ridge and Lasso have very small lambda. It means that both models end up penalizing a little bit. This makes sense because there are not many predictors and predictors are quite independant. 
+
+**Principal Component Regression** fits a linear regression on newly generated basis, principal components. The number of principal components is important. To obtain the best number, we use 10-fold cross validation and select one that minimizes RMSEP. The figure shows that both ten and eleven PCs are very simliar and bring about the lowest RMSEP. So, we end up choosing ten pricipal components.
+
+**Partial least squares regression** bears some relation to principal components regression. Instead of finding hyperplanes of maximum variance between the response and independent variables, it finds a linear regression model by projecting the predicted variables and the observable variables to a new space. [1] Again, The number of principal components is important. Similarly, to obtain the best number, we use 10-fold cross validation and select one that minimizes RMSEP. The figure shows that four to eleven PCs bring out almost the same RMSEP. If our goal is to reduce dimensionality, we can select either four or five principal components. We end up choosing four.
+
+### 4.3 Coefficients
+
+coefficient plot
+
+### 4.4 Model Comparison and selection
+
+
+---
+output: pdf_document
+---
+```{r, echo=FALSE}
+library(xtable)
+load("../data/pcr.Rdata")
+load("../data/ols.Rdata")
+load("../data/plsr.Rdata")
+load("../data/ridge.Rdata")
+load("../data/lasso.Rdata")
+```
+
+
+```{r, echo=FALSE, results='asis'}
+# Coefficient table for pcr
+# colnames(model.pcr.coeff) <- c("Value")
+xtable_pcr_coef<- xtable(as.data.frame(model.pcr.coeff), 
+                         caption = 'Coefficient Table of PCR')
+print(xtable_pcr_coef, comment=FALSE, type = "latex", caption.placement = 'top')
+```
+
+```{r, echo=FALSE, results='asis'}
+# Coefficient table for plsr
+# colnames(model.plsr.coeff) <- c("Value")
+xtable_plsr_coef<- xtable(as.data.frame(model.plsr.coeff), 
+                         caption = 'Coefficient Table of PLSR')
+print(xtable_plsr_coef, comment=FALSE, type = "latex", caption.placement = 'top')
+```
+
+```{r, echo=FALSE, results='asis'}
+# # Coefficient table for ols
+# colnames(model.ols.coeff) <- c("Value")
+xtable_ols_coef<- xtable(as.data.frame(model.ols.coeff),
+                         caption = 'Coefficient Table of OLS')
+print(xtable_ols_coef, comment=FALSE, type = "latex", caption.placement = 'top')
+```
+
+```{r, echo=FALSE, results='asis'}
+# Coefficient table for ridge
+# colnames(model.ridge.coeff) <- c("Value")
+xtable_ridge_coef<- xtable(as.data.frame(as.matrix(model.ridge.coeff)), 
+                         caption = 'Coefficient Table of Ridge Regression')
+print(xtable_ridge_coef, comment=FALSE, type = "latex", caption.placement = 'top')
+```
+
+```{r, echo=FALSE, results='asis'}
+# Coefficient table for lasso
+# colnames(model.lasso.coeff) <- c("Value")
+xtable_lasso_coef<- xtable(as.data.frame(as.matrix(model.lasso.coeff)), 
+                         caption = 'Coefficient Table of Lasso Regression')
+print(xtable_lasso_coef, comment=FALSE, type = "latex", caption.placement = 'top')
+```
+
+\begin{figure}[!hb]
+  \centering
+    \includegraphics[width=70mm]{../images/conditional-boxplot-Student.png}
+      \caption{Conditional Boxplot on Student}
+\end{figure}
+
+
 ## 6. Conclusion
 
 In conclusions, we explore and compare the usage of different regression models on dataset `Credit` to understand the relationship between dependent variable `Balance` and ten potential predictors. Setting ordinary least squares as the benchmark, we look at two shrinkage regression methods (ridge and lasso) and two dimension reduction regression methods (PCR and PLSR) to find the best fitting model.
@@ -49,3 +163,6 @@ In conclusions, we explore and compare the usage of different regression models 
 ## Reference
 
 James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. _An Introduction to Statistical Learning: With Applications in R_. New York: Springer, 2013. Print.
+
+1. https://en.wikipedia.org/wiki/Partial_least_squares_regression
+
