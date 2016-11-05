@@ -1,3 +1,4 @@
+
 # load model data
 load("../../data/ols.RData")
 load("../../data/ridge.RData")
@@ -15,18 +16,30 @@ mse_table <- data.frame(mse = c(model.ols.mse, model.ridge.mse, model.lasso.mse,
 rownames(mse_table) <- c('ols', 'ridge', 'lasso', 'pcr', 'plsr')
 mse_table
 
-save(coeff_table, mse_table, file = "data/report.RData")
+save(coeff_table, mse_table, file = "../../data/report.RData")
+
+# Plot cross validation errors
+png("../../images/pcr-cross-validation.png")
+validationplot(model.pcr, val.type = "MSEP", main = "PCR: cross-validation errors")
+dev.off()
+
+png("../../images/plsr-cross-validation.png")
+validationplot(model.plsr, val.type = "MSEP", main = "PLSR: cross-validation errors")
+dev.off()
 
 # plot combs values
 png("../../images/pcr-combs.png")
 plot(model.pcr.combs, legendpos = "topright")
 dev.off()
+
 png("../../images/plsr-combs.png")
 plot(model.plsr.combs, legendpos = "topright")
 dev.off()
+
 png("../../images/ridge-lambda.png")
 plot(model.ridge.lambda)
 dev.off()
+
 png("../../images/lasso-lambda.png")
 plot(model.lasso.lambda)
 dev.off()

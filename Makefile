@@ -4,6 +4,7 @@ C = code
 S = code/scripts
 T = code/tests
 R = report
+ST = report/sections/*.Rmd
 
 # Declare PHONY targets
 .PHONY: all data tests eda pre ols ridge lasso pcr plsr regressions post report slides session clean
@@ -16,7 +17,7 @@ data:
 tests: $(T)/test-evaluation.R
 	cd $(T) && Rscript test-evaluation.R
 
-eda: $(S)/eda-script.R session
+eda: $(S)/eda-script.R
 	cd $(S) && Rscript eda-script.R
 
 pre: $(S)/preprocess.R
@@ -47,8 +48,9 @@ regressions:
 post: $(S)/postprocess.R
 	cd $(S) && Rscript postprocess.R
 
-report: $(R)/report.Rmd
-	cd $(R); Rscript -e 'library(rmarkdown); render("report.Rmd")'
+report: $(ST)
+	cat $(ST) > $(R)/report.Rmd
+	cd $(R); Rscript -e "library(rmarkdown); render('report.Rmd', 'pdf_document')"
 
 slides: slides/slides.Rmd
 	cd slides; Rscript -e 'library(rmarkdown); render("slides.Rmd")'

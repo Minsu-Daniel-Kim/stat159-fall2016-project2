@@ -1,3 +1,5 @@
+library(dplyr)
+library(car)
 
 # Import Data
 Credit <- read.csv("../../data/Credit.csv", header = TRUE)
