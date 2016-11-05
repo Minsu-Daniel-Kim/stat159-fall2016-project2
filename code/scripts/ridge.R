@@ -31,6 +31,6 @@ model.ridge <- glmnet(as.matrix(select(credit.original, -Balance)), credit.origi
 model.ridge.coeff <- coef(model.ridge)
 
 # save ridge
-save(model.ridge.lambda, model.ridge.lambda.min, model.ridge.mse, model.ridge.coeff, file = '../../data/ridge.RData')
+save(model.ridge, model.ridge.lambda, model.ridge.lambda.min, model.ridge.mse, model.ridge.coeff, file = '../../data/ridge.RData')
 
 

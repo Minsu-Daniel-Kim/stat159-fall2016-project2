@@ -22,7 +22,8 @@ model.pcr.combs <- RMSEP(model.pcr)
 
 
 # prediction using model.pcr
-model.pcr.pred <- predict(model.pcr, ncomp = model.pcr.comps.min, newdata = credit.test)
+# choose ncomp = 10
+model.pcr.pred <- predict(model.pcr, ncomp = 10, newdata = credit.test)
 
 # mse
 model.pcr.mse <- get_mse(credit.test$Balance, model.pcr.pred)

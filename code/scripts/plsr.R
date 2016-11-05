@@ -25,7 +25,8 @@ model.plsr.comps.min
 
 
 # Prediction for test set
-model.plsr.pred <- predict(model.plsr, ncomp = model.plsr.comps.min, newdata = credit.test)
+# choose ncomp = 4
+model.plsr.pred <- predict(model.plsr, ncomp = 4, newdata = credit.test)
 
 # mse
 model.plsr.mse <- get_mse(credit.test$Balance, model.plsr.pred)

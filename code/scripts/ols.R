@@ -24,5 +24,5 @@ model.ols.summary <- summary(model.ols)
 model.ols.coeff <- model.ols.summary$coefficients[,1]
 
 # save ridge
-save(model.ols.mse, model.ols.coeff, file = '../../data/ols.RData')
+save(model.ols, model.ols.mse, model.ols.coeff, file = '../../data/ols.RData')
 

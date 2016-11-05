@@ -31,4 +31,4 @@ model.lasso <- glmnet(as.matrix(select(credit.original, -Balance)), credit.origi
 model.lasso.coeff <- coef(model.lasso)
 
 # save lasso
-save(model.lasso.lambda, model.lasso.lambda.min, model.lasso.mse, model.lasso.coeff, file = '../../data/lasso.RData')
+save(model.lasso, model.lasso.lambda, model.lasso.lambda.min, model.lasso.mse, model.lasso.coeff, file = '../../data/lasso.RData')
