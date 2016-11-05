@@ -1,3 +1,4 @@
+library(pls)
 
 # load model data
 load("../../data/ols.RData")
