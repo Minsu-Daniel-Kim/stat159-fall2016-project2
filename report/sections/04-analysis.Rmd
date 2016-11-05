@@ -1,0 +1,5 @@
+\begin{figure}[!hb]
+  \centering
+    \includegraphics[width=70mm]{../images/conditional-boxplot-Student.png}
+      \caption{the cross-validation errors in terms of the number of principal components used}
+\end{figure}
