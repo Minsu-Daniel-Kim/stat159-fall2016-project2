@@ -6,3 +6,6 @@ In conclusions, we explore and compare the usage of different regression models 
 ## Reference
 
 James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. _An Introduction to Statistical Learning: With Applications in R_. New York: Springer, 2013. Print.
+
+1. https://en.wikipedia.org/wiki/Partial_least_squares_regression
+
