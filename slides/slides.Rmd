@@ -6,7 +6,7 @@ output: ioslides_presentation
 ---
 
 ## Project Objective
-This project thoroughly explores the predictive modeling process. From previous study, in order to understand the relationship of one dependent variable with several independent variables, we fit a multiple linear regession with Ordinary Least Squares. However, since OLS may have high variance and include irrelevant variables, Predictive Modeling Process can improve the results in terms of **Prediction Accuracy** and **Model Interpretability**. 
+This project thoroughly explores the predictive modeling process. From previous study, in order to understand the relationship of one dependent variable with several independent variables, we fit a multiple linear regession with Ordinary Least Squares. However, since OLS may have high variance and include irrelevant variables, Predictive Modeling Process can improve the results in terms of **Prediction Accuracy** and **Model Interpretability**
 
 ## Data Target
 Our analysis starts with the data set [Credit](http://www-bcf.usc.edu/~gareth/ISL/Credit.csv) provided by the author of book "An Introduction to Statistical Learning". This data set records `Balance`, which is the average credit card debt for a number of individuals, as well as several predictors. The dataset has eleven variables:
