@@ -64,7 +64,6 @@ stat159-fall2016-project2/
       Credit.csv
       scaled-credit.csv
    images/
-      ...
    report/
       report.pdf
       report.Rmd
@@ -85,18 +84,7 @@ stat159-fall2016-project2/
 
 > * 0. Abstract
 > * 1. Introduction
->	* 1.1 Makefile
->	* 1.2 Git
->	* 1.3 GitHub
->	* 1.4 Pandoc
->	* 1.5 Markdown
 > * 2. Data
->	* 2.1 Resources I used
->	* 2.2 Easy parts
->	* 2.3 Challenging parts
->	* 2.4 Things I was stuck with
->	* 2.5 Time consuming parts
->	* 2.6 How much time I spent
 > * 3. Methods
 > * 4. Analysis
 > * 5. Results
