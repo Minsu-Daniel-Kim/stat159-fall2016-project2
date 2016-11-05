@@ -1,5 +1,59 @@
+---
+output: pdf_document
+---
+```{r, echo=FALSE}
+library(xtable)
+load("../../data/pcr.Rdata")
+load("../../data/ols.Rdata")
+load("../../data/plsr.Rdata")
+load("../../data/ridge.Rdata")
+load("../../data/lasso.Rdata")
+```
+
+
+```{r, echo=FALSE, results='asis'}
+# Coefficient table for pcr
+colnames(model.pcr.coeff) <- c("Value")
+xtable_pcr_coef<- xtable(as.data.frame(model.pcr.coeff), 
+                         caption = 'Coefficient Table of PCR')
+print(xtable_pcr_coef, comment=FALSE, type = "latex", caption.placement = 'top')
+```
+
+```{r, echo=FALSE, results='asis'}
+# Coefficient table for plsr
+colnames(model.plsr.coeff) <- c("Value")
+xtable_plsr_coef<- xtable(as.data.frame(model.plsr.coeff), 
+                         caption = 'Coefficient Table of PLSR')
+print(xtable_plsr_coef, comment=FALSE, type = "latex", caption.placement = 'top')
+```
+
+```{r, echo=FALSE, results='asis'}
+# Coefficient table for ols
+colnames(model.ols.coeff) <- c("Value")
+xtable_ols_coef<- xtable(as.data.frame(model.ols.coeff), 
+                         caption = 'Coefficient Table of OLS')
+print(xtable_ols_coef, comment=FALSE, type = "latex", caption.placement = 'top')
+```
+
+```{r, echo=FALSE, results='asis'}
+# Coefficient table for ridge
+colnames(model.ridge.coeff) <- c("Value")
+xtable_ridge_coef<- xtable(as.data.frame(model.ridge.coeff), 
+                         caption = 'Coefficient Table of Ridge Regression')
+print(xtable_ridge_coef, comment=FALSE, type = "latex", caption.placement = 'top')
+```
+
+```{r, echo=FALSE, results='asis'}
+# Coefficient table for lasso
+colnames(model.lasso.coeff) <- c("Value")
+xtable_lasso_coef<- xtable(as.data.frame(model.lasso.coeff), 
+                         caption = 'Coefficient Table of Lasso Regression')
+print(xtable_lasso_coef, comment=FALSE, type = "latex", caption.placement = 'top')
+```
+
 \begin{figure}[!hb]
   \centering
     \includegraphics[width=70mm]{../images/conditional-boxplot-Student.png}
-      \caption{the cross-validation errors in terms of the number of principal components used}
+      \caption{Conditional Boxplot on Student}
 \end{figure}
+
