@@ -1,8 +1,8 @@
 # sooure evaluation.R
-source("code/functions/evaluation.R")
+source("../functions/evaluation.R")
 
 # import train / test datast
-load("data/credit_original_test_train.RData")
+load("../../data/credit_original_test_train.RData")
 
 model.pcr <- pcr(Balance ~ ., data = credit.train, validation = 'CV', scale = FALSE)
 model.pcr.comps.min <- which.min(model.pcr$validation$PRESS)
@@ -27,5 +27,5 @@ model.pcr <- pcr(Balance ~ ., data = credit.original, validation = 'CV', scale =
 model.pcr.coeff <- coef(model.pcr)
 
 # save pcr
-save(model.pcr.combs, model.pcr.mse, model.pcr.coeff, file = 'data/pcr.RData')
+save(model.pcr.combs, model.pcr.mse, model.pcr.coeff, file = '../../data/pcr.RData')
 

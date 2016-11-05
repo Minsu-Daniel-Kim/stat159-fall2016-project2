@@ -1,8 +1,8 @@
 # sooure evaluation.R
-source("code/functions/evaluation.R")
+source("../functions/evaluation.R")
 
 # import train / test datast
-load("data/credit_original_test_train.RData")
+load("../../data/credit_original_test_train.RData")
 
 # train the model using glmnet
 set.seed(1000)
@@ -27,6 +27,6 @@ model.ridge <- glmnet(as.matrix(select(credit.original, -Balance)), credit.origi
 model.ridge.coeff <- coef(model.ridge)
 
 # save ridge
-save(model.ridge.lambda, model.ridge.lambda.min, model.ridge.mse, model.ridge.coeff, file = 'data/ridge.RData')
+save(model.ridge.lambda, model.ridge.lambda.min, model.ridge.mse, model.ridge.coeff, file = '../../data/ridge.RData')
 
 

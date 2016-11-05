@@ -1,6 +1,3 @@
-library(stats)
-library(dplyr)
-library(graphics)
 
 # Explore Qualitative Variables
 

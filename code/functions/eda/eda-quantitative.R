@@ -1,5 +1,3 @@
-library(stats)
-library(dplyr)
 
 # Explore Quantitative Variables
 

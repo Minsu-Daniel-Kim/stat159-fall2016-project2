@@ -1,8 +1,8 @@
 # sooure evaluation.R
-source("code/functions/evaluation.R")
+source("../functions/evaluation.R")
 
 # import train / test datast
-load("data/credit_original_test_train.RData")
+load("../../data/credit_original_test_train.RData")
 
 ## 10-fold CV
 train_control <- trainControl(
@@ -21,5 +21,5 @@ model.ols.summary <- summary(model.ols)
 model.ols.coeff <- model.ols.summary$coefficients[,1]
 
 # save ridge
-save(model.ols.mse, model.ols.coeff, file = 'data/ols.RData')
+save(model.ols.mse, model.ols.coeff, file = '../../data/ols.RData')
 

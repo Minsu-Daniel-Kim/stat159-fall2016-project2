@@ -1,8 +1,8 @@
 # sooure evaluation.R
-source("code/functions/evaluation.R")
+source("../functions/evaluation.R")
 
 # import train / test datast
-load("data/credit_original_test_train.RData")
+load("../../data/credit_original_test_train.RData")
 
 # train the model using glmnet
 set.seed(1000)
@@ -27,4 +27,4 @@ model.lasso <- glmnet(as.matrix(select(credit.original, -Balance)), credit.origi
 model.lasso.coeff <- coef(model.lasso)
 
 # save lasso
-save(model.lasso.lambda, model.lasso.lambda.min, model.lasso.mse, model.lasso.coeff, file = 'data/lasso.RData')
+save(model.lasso.lambda, model.lasso.lambda.min, model.lasso.mse, model.lasso.coeff, file = '../../data/lasso.RData')

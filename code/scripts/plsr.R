@@ -1,8 +1,8 @@
 # sooure evaluation.R
-source("code/functions/evaluation.R")
+source("../functions/evaluation.R")
 
 # import train / test datast
-load("data/credit_original_test_train.RData")
+load("../../data/credit_original_test_train.RData")
 
 
 # 10-fold cross validation
@@ -33,4 +33,4 @@ model.plsr.coeff <- coef(model.plsr)
 
 
 # Save info to RData
-save(model.plsr.combs, model.plsr.mse, model.plsr.coeff, file = "data/plsr.RData")
+save(model.plsr.combs, model.plsr.mse, model.plsr.coeff, file = "../../data/plsr.RData")

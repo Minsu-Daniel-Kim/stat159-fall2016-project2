@@ -10,21 +10,21 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  base     
 
 other attached packages:
- [1] xtable_1.8-2    rmarkdown_0.9.2 pls_2.5-0       knitr_1.12     
- [5] dplyr_0.4.3     devtools_1.9.1  caret_6.0-72    ggplot2_2.0.0  
- [9] lattice_0.20-33 car_2.1-1      
+ [1] glmnet_2.0-5    foreach_1.4.3   Matrix_1.2-3    xtable_1.8-2   
+ [5] rmarkdown_0.9.2 pls_2.5-0       knitr_1.12      dplyr_0.4.3    
+ [9] devtools_1.9.1  caret_6.0-72    ggplot2_2.0.0   lattice_0.20-33
+[13] car_2.1-1      
 
 loaded via a namespace (and not attached):
  [1] Rcpp_0.12.3        nloptr_1.0.4       plyr_1.8.3         methods_3.2.3     
  [5] iterators_1.0.8    tools_3.2.3        lme4_1.1-10        digest_0.6.9      
  [9] memoise_0.2.1      gtable_0.1.2       nlme_3.1-122       mgcv_1.8-9        
-[13] Matrix_1.2-3       foreach_1.4.3      DBI_0.3.1          parallel_3.2.3    
-[17] SparseM_1.7        stringr_1.1.0      MatrixModels_0.4-1 stats4_3.2.3      
-[21] grid_3.2.3         nnet_7.3-11        R6_2.1.1           minqa_1.2.4       
-[25] reshape2_1.4.1     magrittr_1.5       htmltools_0.3.5    scales_0.3.0      
-[29] codetools_0.2-14   ModelMetrics_1.1.0 MASS_7.3-45        splines_3.2.3     
-[33] assertthat_0.1     pbkrtest_0.4-4     colorspace_1.2-6   quantreg_5.19     
-[37] stringi_1.0-1      munsell_0.4.2     
+[13] DBI_0.3.1          parallel_3.2.3     SparseM_1.7        stringr_1.1.0     
+[17] MatrixModels_0.4-1 stats4_3.2.3       grid_3.2.3         nnet_7.3-11       
+[21] R6_2.1.1           minqa_1.2.4        reshape2_1.4.1     magrittr_1.5      
+[25] htmltools_0.3.5    scales_0.3.0       codetools_0.2-14   ModelMetrics_1.1.0
+[29] MASS_7.3-45        splines_3.2.3      assertthat_0.1     pbkrtest_0.4-4    
+[33] colorspace_1.2-6   quantreg_5.19      stringi_1.0-1      munsell_0.4.2     
  setting  value                       
  version  R version 3.2.3 (2015-12-10)
  system   x86_64, darwin13.4.0        
@@ -44,8 +44,9 @@ loaded via a namespace (and not attached):
  devtools     * 1.9.1   2015-09-11 CRAN (R 3.2.0)
  digest         0.6.9   2016-01-08 CRAN (R 3.2.3)
  dplyr        * 0.4.3   2015-09-01 CRAN (R 3.2.0)
- foreach        1.4.3   2015-10-13 CRAN (R 3.2.0)
+ foreach      * 1.4.3   2015-10-13 CRAN (R 3.2.0)
  ggplot2      * 2.0.0   2015-12-18 CRAN (R 3.2.3)
+ glmnet       * 2.0-5   2016-03-17 CRAN (R 3.2.4)
  gtable         0.1.2   2012-12-05 CRAN (R 3.2.0)
  htmltools      0.3.5   2016-03-21 CRAN (R 3.2.3)
  iterators      1.0.8   2015-10-13 CRAN (R 3.2.0)
@@ -54,7 +55,7 @@ loaded via a namespace (and not attached):
  lme4           1.1-10  2015-10-06 CRAN (R 3.2.2)
  magrittr       1.5     2014-11-22 CRAN (R 3.2.0)
  MASS           7.3-45  2015-11-10 CRAN (R 3.2.3)
- Matrix         1.2-3   2015-11-28 CRAN (R 3.2.3)
+ Matrix       * 1.2-3   2015-11-28 CRAN (R 3.2.3)
  MatrixModels   0.4-1   2015-08-22 CRAN (R 3.2.0)
  memoise        0.2.1   2014-04-22 CRAN (R 3.2.0)
  mgcv           1.8-9   2015-10-30 CRAN (R 3.2.3)

@@ -1,5 +1,5 @@
 
-credit <- read.csv("data/Credit.csv")
+credit <- read.csv("../../data/Credit.csv")
 credit$X <- NULL
 summary(credit)
 
@@ -21,7 +21,7 @@ scaled_credit <- as.data.frame(scaled_credit)
 
 
 # export scaled data
-write.csv(scaled_credit, file = "data/scaled-credit.csv", row.names = FALSE)
+write.csv(scaled_credit, file = "../../data/scaled-credit.csv", row.names = FALSE)
 
 # split data set into 80% (training & validation) / 20% (testing)
 set.seed(1000)
@@ -35,5 +35,5 @@ credit.test %>% nrow()
 credit.train %>% nrow()
 
 # save train and test dataset in credit_test_train.RData
-save(credit.original, credit.train, credit.test, file = "data/credit_original_test_train.RData")
+save(credit.original, credit.train, credit.test, file = "../../data/credit_original_test_train.RData")
 

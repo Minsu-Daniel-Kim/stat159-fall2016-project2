@@ -1,5 +1,5 @@
 library(testthat)
-source("code/functions/evaluation.R")
+source("../functions/evaluation.R")
 
 context("Test for evalution functions") 
 
