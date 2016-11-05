@@ -31,4 +31,3 @@ model.pcr.coeff <- coef(model.pcr)
 # save pcr
 save(model.prc.combs.plot, model.pcr.mse, model.pcr.coeff, file = 'data/pcr.RData')
 
-

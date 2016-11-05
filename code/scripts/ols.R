@@ -1,16 +1,10 @@
 library(caret)
 library(dplyr)
 source("code/functions/evaluation.R")
-# import preprocessed credit file
-
 
 # import train / test datast
 load("data/credit_original_test_train.RData")
 
-# 10-fold cross validation
-train_control<- trainControl(method="cv", number=10)
-
-# train the model
 model.ols <- train(Balance~., data=credit.train, trControl=train_control, method="lm")
 model.ols.pred <- predict(model.ols, credit.test)
 
@@ -24,5 +18,3 @@ model.ols.coeff <- model.ols.summary$coefficients[,1]
 
 # save ridge
 save(model.ols.mse, model.ols.coeff, file = 'data/ols.RData')
-
-

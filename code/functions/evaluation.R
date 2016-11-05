@@ -30,7 +30,12 @@ rsquared <- function(y, y_estimated) {
   return(result)
 }
 
+<<<<<<< HEAD
 get_mse <- function(y, y_estimate) {
   result = mean((y - y_estimate) ^ 2)
+=======
+mse <- function(y, y_estimate) {
+  result = sum((y - y_estimate) ^ 2) / length(y)
+>>>>>>> 87ba2a4dbfc6a83f4c3996c5cecbd0cfde250663
   return(result)
 }
