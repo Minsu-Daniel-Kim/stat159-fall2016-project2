@@ -1,9 +1,13 @@
-library(caret)
-library(dplyr)
+# sooure evaluation.R
 source("code/functions/evaluation.R")
 
 # import train / test datast
 load("data/credit_original_test_train.RData")
+
+## 10-fold CV
+train_control <- trainControl(
+  method = "cv",
+  number = 10)
 
 model.ols <- train(Balance~., data=credit.train, trControl=train_control, method="lm")
 model.ols.pred <- predict(model.ols, credit.test)
@@ -18,3 +22,4 @@ model.ols.coeff <- model.ols.summary$coefficients[,1]
 
 # save ridge
 save(model.ols.mse, model.ols.coeff, file = 'data/ols.RData')
+

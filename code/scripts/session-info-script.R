@@ -13,6 +13,7 @@ library(pls)
 library(rmarkdown)
 library(utils)
 library(xtable)
+library(glmnet)
 
 sink("../../session-info.txt")
 system("git --version")

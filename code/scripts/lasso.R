@@ -1,6 +1,4 @@
-library(caret)
-library(dplyr)
-library(glmnet)
+# sooure evaluation.R
 source("code/functions/evaluation.R")
 
 # import train / test datast
@@ -13,7 +11,7 @@ model.lasso.lambda <- cv.glmnet(as.matrix(select(credit.train, -Balance)), credi
 model.lasso <- glmnet(as.matrix(select(credit.train, -Balance)), credit.train$Balance, alpha = 1, lambda = model.lasso.lambda$lambda.min)
 
 # plot lambda values
-model.lasso.lambda.plot <- plot(model.lasso.lambda)
+model.lasso.lambda <- model.lasso.lambda
 
 # select the best lambda
 model.lasso.lambda.min <- model.lasso.lambda$lambda.min
@@ -29,4 +27,4 @@ model.lasso <- glmnet(as.matrix(select(credit.original, -Balance)), credit.origi
 model.lasso.coeff <- coef(model.lasso)
 
 # save lasso
-save(model.lasso.lambda.plot, model.lasso.lambda.min, model.lasso.mse, model.lasso.coeff, file = 'data/lasso.RData')
+save(model.lasso.lambda, model.lasso.lambda.min, model.lasso.mse, model.lasso.coeff, file = 'data/lasso.RData')

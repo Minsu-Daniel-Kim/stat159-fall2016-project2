@@ -1,6 +1,4 @@
-library(caret)
-library(dplyr)
-library(pls)
+# sooure evaluation.R
 source("code/functions/evaluation.R")
 
 # import train / test datast
@@ -11,11 +9,11 @@ model.pcr.comps.min <- which.min(model.pcr$validation$PRESS)
 
 # You can use the function validationplot(), with the argument val.type = "MSEP", on the outputs of pcr() and plsr().
 summary(model.pcr)
-validationplot(model.pcr, val.type = "MSEP")
+validationplot(model.pcr, val.type = "MSEP", main = "PCR: cross-validation errors")
 
 # plot combs values
 
-model.prc.combs.plot <- plot(RMSEP(model.pcr), legendpos = "topright")
+model.pcr.combs <- RMSEP(model.pcr)
 
 
 # prediction using model.pcr
@@ -29,5 +27,5 @@ model.pcr <- pcr(Balance ~ ., data = credit.original, validation = 'CV', scale =
 model.pcr.coeff <- coef(model.pcr)
 
 # save pcr
-save(model.prc.combs.plot, model.pcr.mse, model.pcr.coeff, file = 'data/pcr.RData')
+save(model.pcr.combs, model.pcr.mse, model.pcr.coeff, file = 'data/pcr.RData')
 

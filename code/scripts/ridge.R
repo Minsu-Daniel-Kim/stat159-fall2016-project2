@@ -1,6 +1,4 @@
-library(caret)
-library(dplyr)
-library(glmnet)
+# sooure evaluation.R
 source("code/functions/evaluation.R")
 
 # import train / test datast
@@ -13,7 +11,7 @@ model.ridge.lambda <- cv.glmnet(as.matrix(select(credit.train, -Balance)), credi
 model.ridge <- glmnet(as.matrix(select(credit.train, -Balance)), credit.train$Balance, alpha = 0, lambda = model.ridge.lambda$lambda.min)
 
 # plot lambda values
-model.ridge.lambda.plot <- plot(model.ridge.lambda)
+model.ridge.lambda <- model.ridge.lambda
 
 # select the best lambda
 model.ridge.lambda.min <- model.ridge.lambda$lambda.min
@@ -29,6 +27,6 @@ model.ridge <- glmnet(as.matrix(select(credit.original, -Balance)), credit.origi
 model.ridge.coeff <- coef(model.ridge)
 
 # save ridge
-save(model.ridge.lambda.plot, model.ridge.lambda.min, model.ridge.mse, model.ridge.coeff, file = 'data/ridge.RData')
+save(model.ridge.lambda, model.ridge.lambda.min, model.ridge.mse, model.ridge.coeff, file = 'data/ridge.RData')
 
 
