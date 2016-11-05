@@ -29,19 +29,19 @@ pre: $(S)/preprocess.R
 # ------------------------------------------------------------------------------------------
 # Run regression models
 # ------------------------------------------------------------------------------------------
-ols: $(S)/ols.R
+ols: $(S)/ols.R pre
 	cd $(S) && Rscript ols.R
 
-ridge: $(S)/ridge.R
+ridge: $(S)/ridge.R pre
 	cd $(S) && Rscript ridge.R
 
-lasso: $(S)/lasso.R
+lasso: $(S)/lasso.R pre
 	cd $(S) && Rscript lasso.R
 
-pcr: $(S)/pcr.R
+pcr: $(S)/pcr.R pre
 	cd $(S) && Rscript pcr.R
 
-plsr: $(S)/plsr.R
+plsr: $(S)/plsr.R pre
 	cd $(S) && Rscript plsr.R
 
 regressions:
@@ -60,7 +60,7 @@ post: $(S)/postprocess.R
 # ------------------------------------------------------------------------------------------
 # Generate report
 # ------------------------------------------------------------------------------------------
-report: $(ST)
+report: $(ST) post
 	cat $(ST) > $(R)/report.Rmd
 	cd $(R); Rscript -e "library(rmarkdown); render('report.Rmd', 'pdf_document')"
 

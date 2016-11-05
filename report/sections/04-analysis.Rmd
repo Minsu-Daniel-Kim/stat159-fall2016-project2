@@ -13,6 +13,7 @@ load("../../data/ridge.Rdata")
 load("../../data/lasso.Rdata")
 load("../../data/report.RData")
 ```
+
 ## 4. Analysis
 In this section, we present the result for each model by investigating hyper-parameters, coefficients and Mean Square Error. Lastly, we choose the best model based on Mean Square Error.
 
@@ -22,7 +23,7 @@ In order to set the baseline model, we first fit the ordinary least square regre
 ### 4.2 Tuning parameter selection
 As mentioned in methods section, we use 10-fold cross validation to tune hyper-paramters for each model. 
 
-**Ridge regression** penalizes predictors' weights by L2 norm. And lambda determines the magnitude of the penalty. The figure shows that MSE increases as the lambda increments. Using cross validation, we finally obtain the minimum lambda that maximizes MSE, which is 0.01. 
+**Ridge regression** penalizes predictors' weights by L2 norm. And lambda determines the magnitude of the penalty. Figure 1 shows that MSE increases as the lambda increments. Using cross validation, we finally obtain the minimum lambda that maximizes MSE, which is 0.01. 
 
 \begin{figure}[!hb]
   \centering
@@ -31,7 +32,7 @@ As mentioned in methods section, we use 10-fold cross validation to tune hyper-p
 \end{figure}
 
 
-**Lasso regression** penalizes predictors' weights by L1 norm. Similar to Ridge regression, its lambda determines the magnitude of the penalty. The figure shows that MSE increases significanly as lambda grows. Using cross validation, we finally obtain the minimum lambda that maximizes MSE, which is 0.01. 
+**Lasso regression** penalizes predictors' weights by L1 norm. Similar to Ridge regression, its lambda determines the magnitude of the penalty. Figure 2 shows that MSE increases significanly as lambda grows. Using cross validation, we finally obtain the minimum lambda that maximizes MSE, which is 0.01. 
 \vspace{100mm}
 
 \begin{figure}[!hb]
@@ -42,7 +43,7 @@ As mentioned in methods section, we use 10-fold cross validation to tune hyper-p
 
 This is an interesting result in that both Ridge and Lasso have very small lambda. It means that both models end up penalizing a little bit. This makes sense because there are not many predictors and predictors are quite independant. 
 
-**Principal Component Regression** fits a linear regression on newly generated basis, principal components. The number of principal components is important. To obtain the best number, we use 10-fold cross validation and select one that minimizes RMSEP. The figure shows that both ten and eleven PCs are very simliar and bring about the lowest RMSEP. So, we end up choosing ten pricipal components.
+**Principal Component Regression** fits a linear regression on newly generated basis, principal components. The number of principal components is important. To obtain the best number, we use 10-fold cross validation and select one that minimizes RMSEP. Figure 3 shows that both ten and eleven PCs are very simliar and bring about the lowest RMSEP. So, we end up choosing ten pricipal components.
 \vspace{10mm}
 \begin{figure}[!hb]
   \centering
@@ -51,7 +52,7 @@ This is an interesting result in that both Ridge and Lasso have very small lambd
 \end{figure}
 
 
-**Partial least squares regression** bears some relation to principal components regression. Instead of finding hyperplanes of maximum variance between the response and independent variables, it finds a linear regression model by projecting the predicted variables and the observable variables to a new space. [1] Again, The number of principal components is important. Similarly, to obtain the best number, we use 10-fold cross validation and select one that minimizes RMSEP. The figure shows that four to eleven PCs bring out almost the same RMSEP. If our goal is to reduce dimensionality, we can select either four or five principal components. We end up choosing four.
+**Partial least squares regression** bears some relation to principal components regression. Instead of finding hyperplanes of maximum variance between the response and independent variables, it finds a linear regression model by projecting the predicted variables and the observable variables to a new space. [1] Again, The number of principal components is important. Similarly, to obtain the best number, we use 10-fold cross validation and select one that minimizes RMSEP. Figure 4 shows that four to eleven PCs bring out almost the same RMSEP. If our goal is to reduce dimensionality, we can select either four or five principal components. We end up choosing four.
 \vspace{10mm}
 \begin{figure}[!hb]
   \centering
@@ -62,7 +63,7 @@ This is an interesting result in that both Ridge and Lasso have very small lambd
 
 ### 4.3 Coefficients
 
-Table 1 and Figure 5 show the coefficients for five different models. They show that cofficietns for predictors in five models are very simliar and there are slight differences in **Limit** and **Rating** predictors. 
+Table 1 and Figure 5 show the coefficients for five different models. They show that cofficietns for predictors in five models are very simliar and there are slight differences in **Limit** and **Rating** predictors. It is noteworthy that there are a lot of zero weights in Lasso. So, Lasso effectively removes unnecessary predictors 
 
 ```{r, echo=FALSE, results='asis'}
 # Coefficient table for plsr
@@ -89,3 +90,11 @@ ggplot(plot_table_coef, aes(x = Predictors, y=Coefficients, group = Models, colo
 
 ### 4.4 Model Comparison and selection
 
+Table 2 shows MSE for each model. This indicates that Ridge brings out the lowest MSE and Lasso and PCR give almost the same MSE and OLS gives the highest MSE. So, we decide to select Ridge regression as our best model.
+
+```{r, echo=FALSE, results='asis'}
+
+xtable_plsr_coef<- xtable(round(mse_table, 5), 
+                         caption = 'MSE Table', digits=6)
+print(xtable_plsr_coef, comment=FALSE, type = "latex", caption.placement = 'top')
+```
