@@ -1,5 +1,6 @@
-library(reshape2)
+
 library(pls)
+library(reshape2)
 # load model data
 load("../../data/ols.RData")
 load("../../data/ridge.RData")

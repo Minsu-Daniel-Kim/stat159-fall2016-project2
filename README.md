@@ -21,7 +21,7 @@ Course website: [gastonsanchez.com/stat159](http://gastonsanchez.com/stat159)
 
 The main directories of this repository are:
 * `data`, which stores the original data set `Credit.csv`, the preprocessed and scaled data set `scaled-credit.csv` and some other RData output
-* `Code`, which holds the codes for all analysis/computations and containes three main directories: 
+* `code`, which holds the codes for all analysis/computations and containes three main directories: 
    * functions, which contains generic functions used in scripts
    * scripts, which is the main folder for all regression model processing
    * tests, which holds unit tests for output comparison
