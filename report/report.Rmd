@@ -1,3 +1,6 @@
+---
+output: pdf_document
+---
 # Predictive Modeling Process - Project Report
 
 
@@ -81,6 +84,9 @@ As mentioned in methods section, we use 10-fold cross validation to tune hyper-p
 
 **Ridge regression** penalizes predictors' weights by L2 norm. And lambda determines the magnitude of the penalty. The figure shows that MSE increases as the lambda increments. Using cross validation, we finally obtain the minimum lambda that maximizes MSE, which is 0.01. 
 
+
+
+
 **Lasso regression** penalizes predictors' weights by L1 norm. Similar to Ridge regression, its lambda determines the magnitude of the penalty. The figure shows that MSE increases significanly as lambda grows. Using cross validation, we finally obtain the minimum lambda that maximizes MSE, which is 0.01. 
 
 This is an interesting result in that both Ridge and Lasso have very small lambda. It means that both models end up penalizing a little bit. This makes sense because there are not many predictors and predictors are quite independant. 
@@ -149,11 +155,6 @@ xtable_lasso_coef<- xtable(as.data.frame(as.matrix(model.lasso.coeff)),
 print(xtable_lasso_coef, comment=FALSE, type = "latex", caption.placement = 'top')
 ```
 
-\begin{figure}[!hb]
-  \centering
-    \includegraphics[width=70mm]{../images/conditional-boxplot-Student.png}
-      \caption{Conditional Boxplot on Student}
-\end{figure}
 
 
 ## 6. Conclusion
