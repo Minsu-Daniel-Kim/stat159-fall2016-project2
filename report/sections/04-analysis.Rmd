@@ -12,3 +12,15 @@ Ridge regression penalizes predictors' weights by L2 norm. And lambda determines
 Lasso regression penalizes predictors' weights by L1 norm. Similar to Ridge regression, its lambda determines the magnitude of the penalty. The figure shows that MSE increases significanly as lambda grows. Using cross validation, we finally obtain the minimum lambda that maximizes MSE, which is 0.01. 
 
 This is an interesting result in that both Ridge and Lasso have very small lambda. It means that both models end up penalizing a little bit. This makes sense because there are not many predictors and predictors are quite independant. 
+
+Principal Component Regression fits a linear regression on newly generated basis, principal components. The number of principal components is important. To obtain the best number, we use 10-fold cross validation and select one that minimizes RMSEP. The figure shows that both ten and eleven PCs are very simliar and bring about the lowest RMSEP. So, we end up choosing ten pricipal components.
+
+Partial least squares regression bears some relation to principal components regression. Instead of finding hyperplanes of maximum variance between the response and independent variables, it finds a linear regression model by projecting the predicted variables and the observable variables to a new space. [1] Again, The number of principal components is important. Similarly, to obtain the best number, we use 10-fold cross validation and select one that minimizes RMSEP. The figure shows that four to eleven PCs bring out almost the same RMSEP. If our goal is to reduce dimensionality, we can select either four or five principal components. We end up choosing four.
+
+### 4.3 Coefficients
+
+coefficient plot
+
+### 4.4 Model Comparison and selection
+
+
