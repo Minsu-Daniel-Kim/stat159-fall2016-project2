@@ -8,7 +8,7 @@ In order to fully understand the data, we first obtain descriptive statistics an
 \vspace{10mm}
 \begin{figure}[!hb]
   \centering
-    \includegraphics[width=70mm]{../../images/scatterplot-matrix.png}
+    \includegraphics[width=70mm]{../images/scatterplot-matrix.png}
       \caption{Scatterplot Matrix of all variables}
 \end{figure}
 
@@ -17,7 +17,7 @@ For qualitative variables, we can also observe some conditional boxplot as displ
 \vspace{10mm}
 \begin{figure}[!hb]
   \centering
-    \includegraphics[width=70mm]{../../images/conditional-boxplot-Student.png}
+    \includegraphics[width=70mm]{../images/conditional-boxplot-Student.png}
       \caption{Conditional Doxplot on Student}
 \end{figure}
 

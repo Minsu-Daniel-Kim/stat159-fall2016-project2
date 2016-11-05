@@ -1,4 +1,5 @@
 
+
 ## 3. Methods
 
 In this section, we present the methods and procedure to build predive models and select the best model that predicts the target variable, balance. We fit and tune five different regression models namely OLS, Lasso, Ridge, PLSR and PCR.

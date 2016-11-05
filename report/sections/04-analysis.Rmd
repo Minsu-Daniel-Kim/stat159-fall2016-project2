@@ -1,17 +1,14 @@
----
-output: pdf_document
----
 
 ```{r, echo=FALSE}
 library(xtable)
 library(reshape2)
 library(ggplot2)
-load("../../data/pcr.Rdata")
-load("../../data/ols.Rdata")
-load("../../data/plsr.Rdata")
-load("../../data/ridge.Rdata")
-load("../../data/lasso.Rdata")
-load("../../data/report.RData")
+load("../data/pcr.Rdata")
+load("../data/ols.Rdata")
+load("../data/plsr.Rdata")
+load("../data/ridge.Rdata")
+load("../data/lasso.Rdata")
+load("../data/report.RData")
 ```
 
 ## 4. Analysis
@@ -27,7 +24,7 @@ As mentioned in methods section, we use 10-fold cross validation to tune hyper-p
 
 \begin{figure}[!hb]
   \centering
-    \includegraphics[width=70mm]{../../images/ridge-lambda.png}
+    \includegraphics[width=70mm]{../images/ridge-lambda.png}
       \caption{Lambda for Ridge}
 \end{figure}
 
@@ -37,7 +34,7 @@ As mentioned in methods section, we use 10-fold cross validation to tune hyper-p
 
 \begin{figure}[!hb]
   \centering
-    \includegraphics[width=70mm]{../../images/lasso-lambda.png}
+    \includegraphics[width=70mm]{../images/lasso-lambda.png}
       \caption{Lambda for Lasso}
 \end{figure}
 
@@ -47,7 +44,7 @@ This is an interesting result in that both Ridge and Lasso have very small lambd
 \vspace{10mm}
 \begin{figure}[!hb]
   \centering
-    \includegraphics[width=70mm]{../../images/pcr-cross-validation.png}
+    \includegraphics[width=70mm]{../images/pcr-cross-validation.png}
       \caption{PCR cross validation}
 \end{figure}
 
@@ -56,7 +53,7 @@ This is an interesting result in that both Ridge and Lasso have very small lambd
 \vspace{10mm}
 \begin{figure}[!hb]
   \centering
-    \includegraphics[width=70mm]{../../images/plsr-cross-validation.png}
+    \includegraphics[width=70mm]{../images/plsr-cross-validation.png}
       \caption{PLSR cross validation}
 \end{figure}
 
