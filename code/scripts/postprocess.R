@@ -1,4 +1,6 @@
+
 library(pls)
+library(reshape2)
 
 # load model data
 load("../../data/ols.RData")
@@ -8,9 +10,9 @@ load("../../data/plsr.RData")
 load("../../data/pcr.RData")
 
 # table of regression coefficients for all methods ols, ridge, lasso, pcr, and plsr
-coeff_table <- cbind(model.ols.coeff, model.ridge.coeff, model.lasso.coeff, rbind(NA, matrix(model.pcr.coeff)), rbind(NA, matrix(model.plsr.coeff)))
+coeff_table <- as.matrix(cbind(model.ols.coeff, model.ridge.coeff, model.lasso.coeff, rbind(0, matrix(model.pcr.coeff)), rbind(0, matrix(model.plsr.coeff))))
 colnames(coeff_table) <- c('ols', 'ridge', 'lasso', 'pcr', 'plsr')
-coeff_table
+coeff_table <- as.data.frame(coeff_table)
 
 # table of regression mse for all methods ols, ridge, lasso, pcr, and plsr
 mse_table <- data.frame(mse = c(model.ols.mse, model.ridge.mse, model.lasso.mse, model.pcr.mse, model.plsr.mse))
