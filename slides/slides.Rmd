@@ -73,6 +73,8 @@ load("../data/report.Rdata")
 ```{r, echo=FALSE, results='asis', message=FALSE}
 # Create table of test MSE
 library(knitr)
+library(reshape2)
+library(ggplot2)
 table_mse <- data.frame("Ridge" = model.ridge.mse,
                         "Lasso" = model.lasso.mse,
                         "PCR" = model.pcr.mse,
