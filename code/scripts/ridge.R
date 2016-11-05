@@ -31,4 +31,3 @@ model.ridge.coeff <- coef(model.ridge)
 # save ridge
 save(model.ridge.lambda.plot, model.ridge.lambda.min, model.ridge.mse, model.ridge.coeff, file = 'data/ridge.RData')
 
-
