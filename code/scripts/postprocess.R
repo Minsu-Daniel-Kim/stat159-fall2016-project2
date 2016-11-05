@@ -9,8 +9,9 @@ load("../../data/plsr.RData")
 load("../../data/pcr.RData")
 
 # table of regression coefficients for all methods ols, ridge, lasso, pcr, and plsr
-
-coeff_table <- matrix(cbind(model.ols.coeff, model.ridge.coeff, as.matrix(model.lasso.coeff), rbind(0, matrix(model.pcr.coeff)), rbind(0, matrix(model.plsr.coeff))), ncol = 5)
+rowname <- rownames(as.matrix(cbind(model.ols.coeff, model.ridge.coeff, model.lasso.coeff, rbind(0, matrix(model.pcr.coeff)), rbind(0, matrix(model.plsr.coeff)))))
+coeff_table <- matrix(as.matrix(cbind(model.ols.coeff, model.ridge.coeff, model.lasso.coeff, rbind(0, matrix(model.pcr.coeff)), rbind(0, matrix(model.plsr.coeff)))), ncol = 5)
+rownames(coeff_table) <- rowname
 colnames(coeff_table) <- c('ols', 'ridge', 'lasso', 'pcr', 'plsr')
 coeff_table <- as.data.frame(coeff_table)
 

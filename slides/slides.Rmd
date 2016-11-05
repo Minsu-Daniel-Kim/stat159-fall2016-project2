@@ -67,6 +67,7 @@ load("../data/ols.Rdata")
 load("../data/plsr.Rdata")
 load("../data/ridge.Rdata")
 load("../data/lasso.Rdata")
+load("../data/report.Rdata")
 ```
 
 ```{r, echo=FALSE, results='asis', message=FALSE}
@@ -87,6 +88,27 @@ print(kable_table_mse, caption.placement="top")
 
 ## Coefficients
 
+```{r, echo=FALSE, results='asis'}
+# Coefficient table for plsr
+# colnames(model.plsr.coeff) <- c("Value")
+xtable_plsr_coef<- xtable(coeff_table, 
+                         caption = 'Coefficient Table')
+print(xtable_plsr_coef, comment=FALSE, type = "latex", caption.placement = 'top')
+```
+
+```{r, echo=FALSE}
+
+plot_table_coef <- cbind(data.frame("Predictors" = rownames(coeff_table)), coeff_table)
+rownames(plot_table_coef) <- NULL
+
+plot_table_coef <- melt(plot_table_coef, id.vars = "Predictors" , value.name= "Coefficients", variable.name= "Models")
+
+ggplot(plot_table_coef, aes(x = Predictors, y=Coefficients, group = Models, colour = Models)) +
+    geom_line() +
+    geom_point(size = 1) +
+    ggtitle("Figure 5: Official Coefficients Comparison") + theme_bw() + 
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
 
 
 ## Conclusions
