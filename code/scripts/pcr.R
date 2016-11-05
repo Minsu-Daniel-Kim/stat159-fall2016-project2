@@ -19,7 +19,7 @@ model.prc.combs.plot <- plot(RMSEP(model.pcr), legendpos = "topright")
 
 
 # prediction using model.pcr
-model.pcr.pred <- predict(model.pcr, ncomp = 11, newdata = credit.test)
+model.pcr.pred <- predict(model.pcr, ncomp = model.pcr.comps.min, newdata = credit.test)
 
 # mse
 model.pcr.mse <- get_mse(credit.test$Balance, model.pcr.pred)
